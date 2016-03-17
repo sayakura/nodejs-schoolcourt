@@ -1,0 +1,391 @@
+<!DOCTYPE HTML>
+<html ng-app="commentBoard">
+<head>
+    <meta charset="utf-8" />
+    <title>School Court</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.11.8/semantic.min.css"/>
+    <script src="js/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.11.8/semantic.min.js"></script>
+
+     <!-- <script src="/socket.io/socket.io.js"></script> -->
+    <link rel="stylesheet" href="css/main.css" type="text/css" />
+    <script>
+      var socket = io.connect();
+      socket.on('entrence',function(data){
+        document.write('<h1>'+data.message+'</h1>');
+      });
+    </script>
+</head>
+<body>
+<!--
+   <div class="header-arg">
+        <div class="header-content">
+        </div>
+   </div>
+  -->
+  <div class="ui pointing inverted menu" style="margin-right:0px;">
+    <a class="compact item">
+    <i class="home icon"></i>
+      Home
+    </a>
+    <a class="compact item">
+      <i class="book icon"></i>
+      Consitution
+    </a>
+    <a class="compact item active">
+      <i class="university icon"></i>
+      Court
+    </a>
+    
+    <div class="right menu">
+      <div class="item">
+        <div class="ui inverted   input">
+          <input type="text" placeholder="Search...">
+          <i class="search link white icon" style="font-size:25px;"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+    
+    <button class="huge ui circular pink icon button pull-down">
+      <i class="sidebar icon" id="sign" style="font-size:30px;"></i>
+    </button>
+  
+  
+
+  <div class="ui grid" style="margin-top:-14px;margin-right:0px;" id="debate">
+   <div class="sixteen wide column" style="3%;"></div>
+    <div class="five wide column">
+        <div class="red ui card " id="redside" >
+            <div class="image">
+               <a class="ui left red corner label"><i class="star icon"></i></a>
+              <img src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTxtYb1Qyy33d6taxj6sBckA8AQuik-zgEyrHQbn2fKWYyYa66Y">
+            </div>
+            <div class="content">
+              <a class="header">Chess Club</a>
+              
+              <div class="description">
+                School side
+              </div>
+            </div>
+            <div class="extra content">
+              <a>
+                <i class="user icon"></i>
+                22 Supporters
+              </a>
+            </div>
+      </div>
+    </div>
+    <div class="six wide column">
+      <div class="bubble me">Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</div>
+      
+       <div class="bubble you" style="margin-top:10%;">Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</div>
+      
+      
+      
+      
+      
+    </div>
+    <div class="five wide column">
+        <div class="blue ui card" id="blueside">
+          <div class="image">
+              <a class="ui right blue corner label"><i class="star icon"></i></a>
+            <img src="http://topschoolsoftware.files.wordpress.com/2013/07/school-administration-software2.jpg">
+          </div>
+          <div class="content">
+            <a class="header">School</a>
+            
+            <div class="description">
+              Kristy is an art director living in New York.
+            </div>
+          </div>
+          <div class="extra content">
+            <a>
+              <i class="user icon"></i>
+              22 Supporters
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="sixteen wide column" style="3%;"></div>
+    </div>
+  </div>
+  
+
+  
+  
+    <div class="ui tall stacked segment " style="width:96%; margin:0 auto; margin-top:14px; margin-bottom:20px; background-color:rgb(230,230,230)">
+      <div class="ui grid">
+        <div class="six wide column">
+          <div class="ui active red large progress" id="redbar" data-percent="74" style="margin-bottom:10px;">
+            <div class="bar">
+              <div class="progress"></div>
+            </div>
+          </div>
+        </div>
+        
+        
+        <div class="four wide column">
+          <div style="text-align: center; ">
+           <div class="ui large buttons">
+              <button class="ui red button">Support</button>
+              <div class="or"></div>
+              <button class="ui blue button">Oppose</button>
+            </div>
+          </div>
+        </div>
+        
+       
+        
+        
+       <div class="six wide column">
+        <div class="ui active blue large progress" id="bluebar" data-percent="80"  style="margin-bottom:5px;">
+          <div class="bar">
+            <div class="progress"></div>
+          </div>
+        </div>
+       </div>
+    </div>
+         
+             
+    <div class="ui grid">
+       <div class="six wide column">
+         <div class="ui stacked segment" >
+            <a class="ui red ribbon label">Comment</a>
+          <div class="ui comments">
+              <div class="comment">
+                <a class="avatar">
+                  <img src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTy9gsPmNSg7MdCHvmdzn7DHOwSKcPko4q0wdiCuhgiUUWCGZ4rJA">
+                </a>
+                <div class="content">
+                  <a class="author">Elliot Fu</a>
+                  <div class="metadata">
+                    <span class="date">Yesterday at 12:30AM</span>
+                  </div>
+                  <div class="text">
+                    <p>This has been very useful for my research. Thanks as well!</p>
+                  </div>
+                  <div class="actions">
+                    <a class="reply">Reply</a>
+                  </div>
+                </div>
+                <div class="comments">
+                  <div class="comment">
+                    <a class="avatar">
+                      <img src="http://zblogged.com/wp-content/uploads/2015/11/17.jpg">
+                    </a>
+                    <div class="content">
+                      <a class="author">Jenny Hess</a>
+                      <div class="metadata">
+                        <span class="date">Just now</span>
+                      </div>
+                      <div class="text">
+                        Elliot you are always so right :)
+                      </div>
+                      <div class="actions">
+                        <a class="reply">Reply</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="comment">
+                <a class="avatar">
+                  <img src="http://www.polyvore.com/cgi/img-thing?.out=jpg&size=l&tid=85251333">
+                </a>
+                <div class="content">
+                  <a class="author">Joe Henderson</a>
+                  <div class="metadata">
+                    <span class="date">5 days ago</span>
+                  </div>
+                  <div class="text">
+                    Dude, this is awesome. Thanks so much
+                  </div>
+                  <div class="actions">
+                    <a class="reply">Reply</a>
+                  </div>
+                </div>
+              </div>
+              <form class="ui reply form">
+                <div class="ui action input">
+                    <input type="text" placeholder="Your name" ng-model="comment.author">
+                    <button class="ui red right labeled icon button">
+                      <i class="upload icon"></i>
+                      Photo
+                    </button>
+                </div>
+                <div class="field" style="margin-top:3px">
+                  <textarea ng-model="textarea"></textarea>
+                </div>
+                <div class="ui red labeled submit icon button">
+                  <i class="icon edit"></i> Add Reply
+                </div>
+              </form>
+            </div>
+         </div>
+       </div>
+          
+        <div class="four wide column"  style="text-align: center; margin-top:6%; font-size:120px;"> 
+          <i class="university icon" ></i>
+          <p style="text-align: center; margin-top:2%; font-size:50px;">
+           A place where you define your own <strong>Justice</strong>
+         </p>
+        </div>
+      
+        <div class="six wide column">
+          <div class="ui stacked segment" id="commentBoard" ng-controller="commentBoardCtrl"">
+           <a class="ui blue right ribbon label">Comment</a>
+           <div class="ui comments">
+              <div class="comment">
+                <a class="avatar">
+                  <img src="http://www.lawyersweekly.com.au/images/LW_Media_Library/LW620p26Partner-Profile.jpg">
+                </a>
+                <div class="content">
+                  <a class="author">Matt</a>
+                  <div class="metadata">
+                    <span class="date">Today at 5:42PM</span>
+                  </div>
+                  <div class="text">
+                    How artistic!
+                  </div>
+                  <div class="actions">
+                    <a class="reply">Reply</a>
+                  </div>
+                </div>
+              </div>
+              <div class="comment">
+                <a class="avatar">
+                  <img src="http://www.allegorious.com/uploads/8/7/5/6/8756285/8502319_orig.png">
+                </a>
+                <div class="content">
+                  <a class="author">Elliot Fu</a>
+                  <div class="metadata">
+                    <span class="date">Yesterday at 12:30AM</span>
+                  </div>
+                  <div class="text">
+                    <p>This has been very useful for my research. Thanks as well!</p>
+                  </div>
+                  <div class="actions">
+                    <a class="reply">Reply</a>
+                  </div>
+                </div>
+                <div class="comments">
+                  <div class="comment">
+                    <a class="avatar">
+                      <img src="https://upload.wikimedia.org/wikipedia/en/7/70/Shawn_Tok_Profile.jpg">
+                    </a>
+                    <div class="content">
+                      <a class="author">Jenny Hess</a>
+                      <div class="metadata">
+                        <span class="date">Just now</span>
+                      </div>
+                      <div class="text">
+                        Elliot you are always so right :)
+                      </div>
+                      <div class="actions">
+                        <a class="reply">Reply</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="comment">
+                <a class="avatar">
+                  <img src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRr-2ztovFQrCV_5GpReNfM6uv2q7RzbJQWWyMX9L3pq2FsfRJH">
+                </a>
+                <div class="content">
+                  <a class="author">Joe Henderson</a>
+                  <div class="metadata">
+                    <span class="date">5 days ago</span>
+                  </div>
+                  <div class="text">
+                    Dude, this is awesome. Thanks so much
+                  </div>
+                  <div class="actions">
+                    <a class="reply">Reply</a>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="comment" ng-show="textarea">
+                <a class="avatar">
+                  <img src="*">
+                </a>
+                <div class="content" >
+                  <a class="author">{{comment.author}}</a>
+                  <div class="metadata">
+                    <span class="date">Just now</span>
+                  </div>
+                  <div class="text" >
+                   <span ng-bind="textarea"></span>
+                  </div>
+                  <div class="actions" >
+                    <a class="reply">Reply</a>
+                  </div>
+                </div>
+              </div>
+              
+ 
+              <form class="ui reply form">
+                <div class="ui action input">
+                    <input type="text" placeholder="Your name" ng-model="comment.author">
+                    <button class="ui blue right labeled icon button">
+                      <i class="upload icon"></i>
+                      Photo
+                    </button>
+                </div>
+                <div class="field" style="margin-top:3px">
+                  <textarea ng-model="textarea"></textarea>
+                </div>
+                <div class="ui blue labeled submit icon button">
+                  <i class="icon edit"></i> Add Reply
+                </div>
+              </form>
+            </div>
+          </div>
+       </div>
+    </div>     
+       
+
+   
+   
+   
+   
+   
+   
+   
+   
+   
+ 
+  <sidebar>
+     <div class="ui left demo vertical inverted sidebar labeled icon menu">
+        <a class="item">
+          <i class="home icon"></i>
+          Court
+        </a>
+        <a class="item">
+          <i class="block layout icon"></i>
+          Topics
+        </a>
+        <a class="item">
+          <i class="smile icon"></i>
+          Friends
+        </a>
+      </div>
+  </sidebar>
+     
+  <script type="text/javascript" src="js/script.js"></script>  
+  <script src="https://cdn.firebase.com/js/client/2.2.1/firebase.js"></script>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+  <script src="https://cdn.firebase.com/libs/angularfire/1.1.3/angularfire.min.js"></script>
+  <script type="text/javascript" src="https://code.angularjs.org/1.5.0/angular-route.js"></script>
+  <script type="text/javascript" src="js/comment.js"></script>  
+</body>
+</html>
