@@ -73,13 +73,13 @@
               <a class="header">Chess Club</a>
               
               <div class="description">
-                School side
+                student side
               </div>
             </div>
             <div class="extra content">
               <a>
                 <i class="user icon"></i>
-                22 Supporters
+                {{lsupporters}} Supporters
               </a>
             </div>
       </div>
@@ -106,7 +106,7 @@
           <div class="extra content">
             <a>
               <i class="user icon"></i>
-              22 Supporters
+              {{rsupporters}} Supporters
             </a>
           </div>
         </div>
@@ -121,7 +121,7 @@
     <div class="ui tall stacked segment " style="width:96%; margin:0 auto; margin-top:14px; margin-bottom:20px; background-color:rgb(230,230,230);  ">
       <div class="ui grid" style="background-color:rgb(70,70,70)">
         <div class="six wide column">
-          <div class="ui active red large progress" id="redbar" data-percent="74" style="margin-bottom:10px;">
+          <div class="ui active red large progress" id="redbar" data-percent="0" style="margin-bottom:10px;">
             <div class="bar">
               <div class="inverted progress"></div>
             </div>
@@ -132,9 +132,9 @@
         <div class="four wide column">
           <div style="text-align: center; ">
            <div class="ui large buttons">
-                <button class="ui red button" >Student</button>
+                <button class="ui red button" ng-click="supportred()">Support</button>
               <div class="or"></div>
-              <button class="ui blue button">&nbsp;&nbsp;School&nbsp;</button>
+              <button class="ui blue button"  ng-click="supportblue()">Support</button>
             </div>
           </div>
         </div>
@@ -143,7 +143,7 @@
         
         
        <div class="six wide column">
-        <div class="ui active blue large progress" id="bluebar" data-percent="80"  style="margin-bottom:5px;">
+        <div class="ui active blue large progress" id="bluebar" data-percent="0"  style="margin-bottom:5px;">
           <div class="bar">
             <div class="progress"></div>
           </div>
@@ -155,7 +155,7 @@
     <div class="ui grid">
        <div class="six wide column">
          <div class="ui stacked segment" >
-            <a class="ui red ribbon label">Comment</a>
+            <a class="ui red ribbon label">{{commentnum}}&nbsp;&nbsp;Comment</a>
           <div class="ui comments" >
              
               
@@ -221,93 +221,22 @@
       
         <div class="six wide column">
           <div class="ui stacked segment" id="commentBoard">
-           <a class="ui blue right ribbon label">Comment</a>
+           <a class="ui blue right ribbon label">{{commentnum2}}&nbsp;&nbsp;Comment</a>
            <div class="ui comments">
-              <div class="comment">
-                <a class="avatar">
-                  <img src="http://www.lawyersweekly.com.au/images/LW_Media_Library/LW620p26Partner-Profile.jpg">
-                </a>
-                <div class="content">
-                  <a class="author">Matt</a>
-                  <div class="metadata">
-                    <span class="date">Today at 5:42PM</span>
-                  </div>
-                  <div class="text">
-                    How artistic!
-                  </div>
-                  <div class="actions">
-                    <a class="reply">Reply</a>
-                  </div>
-                </div>
-              </div>
-              <div class="comment">
-                <a class="avatar">
-                  <img src="http://www.allegorious.com/uploads/8/7/5/6/8756285/8502319_orig.png">
-                </a>
-                <div class="content">
-                  <a class="author">Elliot Fu</a>
-                  <div class="metadata">
-                    <span class="date">Yesterday at 12:30AM</span>
-                  </div>
-                  <div class="text">
-                    <p>This has been very useful for my research. Thanks as well!</p>
-                  </div>
-                  <div class="actions">
-                    <a class="reply">Reply</a>
-                  </div>
-                </div>
-                <div class="comments">
-                  <div class="comment">
-                    <a class="avatar">
-                      <img src="https://upload.wikimedia.org/wikipedia/en/7/70/Shawn_Tok_Profile.jpg">
-                    </a>
-                    <div class="content">
-                      <a class="author">Jenny Hess</a>
-                      <div class="metadata">
-                        <span class="date">Just now</span>
-                      </div>
-                      <div class="text">
-                        Elliot you are always so right :)
-                      </div>
-                      <div class="actions">
-                        <a class="reply">Reply</a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="comment">
-                <a class="avatar">
-                  <img src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRr-2ztovFQrCV_5GpReNfM6uv2q7RzbJQWWyMX9L3pq2FsfRJH">
-                </a>
-                <div class="content">
-                  <a class="author">Joe Henderson</a>
-                  <div class="metadata">
-                    <span class="date">5 days ago</span>
-                  </div>
-                  <div class="text">
-                    Dude, this is awesome. Thanks so much
-                  </div>
-                  <div class="actions">
-                    <a class="reply">Reply</a>
-                  </div>
-                </div>
-              </div>
               
-              <div class="comment" ng-show="textarea">
+            
+            
+              <div class="comment" ng-repeat="c2 in comments2">
                 <a class="avatar">
-                  <img src="*">
+                  <img src="{{c2.photo}}">
                 </a>
                 <div class="content" >
-                  <a class="author">{{comment.author}}</a>
+                  <a class="author">{{c2.author}}</a>
                   <div class="metadata">
-                    <span class="date">Just now</span>
+                    <span class="date">{{c2.date | date:"medium"}}</span>
                   </div>
                   <div class="text" >
-                   <span ng-bind="textarea"></span>
-                  </div>
-                  <div class="actions" >
-                    <a class="reply">Reply</a>
+                   <span>{{c2.textarea}}</span>
                   </div>
                 </div>
               </div>
@@ -315,17 +244,18 @@
  
               <form class="ui reply form">
                 <div class="ui action input">
-                    <input type="text" placeholder="Your name" ng-model="comment.author">
-                    <button class="ui blue right labeled icon button">
+                    <input type="text" placeholder="Your name" ng-model="comment2.author">
+                    <button class="ui blue right labeled icon button" id="photo-b2">
                       <i class="upload icon"></i>
                       Photo
                     </button>
                 </div>
                 <div class="field" style="margin-top:3px">
-                  <textarea ng-model="textarea"></textarea>
+                  <textarea ng-model="comment2.textarea"></textarea>
                 </div>
-                <div class="ui blue labeled submit icon button">
+                <div class="ui blue labeled submit icon button" ng-click="post2()">
                   <i class="icon edit"></i> Add Reply
+                  
                 </div>
               </form>
               

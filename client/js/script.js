@@ -20,6 +20,11 @@ $(document).ready(function(){
           .modal('show')
         ;
     });
+      $("#photo-b2").click(function(){    
+        $('.ui.modal')
+          .modal('show')
+        ;
+    });
     $('#debate').mouseenter(function(){
         $(this).css('background-image','url(/client/img/background/bg.jpg)');
     }).mouseleave(function(){
