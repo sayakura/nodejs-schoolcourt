@@ -15,6 +15,18 @@ $(document).ready(function(){
     $('.activating.element')
       .popup()
     ;
+    $("#photo-b").click(function(){    
+        $('.ui.modal')
+          .modal('show')
+        ;
+    });
+    $('#debate').mouseenter(function(){
+        $(this).css('background-image','url(/client/img/background/bg.jpg)');
+    }).mouseleave(function(){
+        $(this).css('background-image','url(/client/img/background/bg2.jpg)');
+    });
+    
+    
 });
 var rotation = 180;
 $('.pull-down').click(function(){
