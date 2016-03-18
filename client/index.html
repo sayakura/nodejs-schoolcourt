@@ -16,7 +16,7 @@
       });
     </script>
 </head>
-<body>
+<body ng-controller="commentBoardCtrl">
 <!--
    <div class="header-arg">
         <div class="header-content">
@@ -61,6 +61,7 @@
   
 
   <div class="ui grid" style="margin-top:-14px;margin-right:0px;" id="debate">
+   
    <div class="sixteen wide column" style="3%;"></div>
     <div class="five wide column">
         <div class="red ui card " id="redside" >
@@ -83,14 +84,10 @@
             </div>
       </div>
     </div>
-    <div class="six wide column">
+    <div class="six wide column" style="font-size:15px;">
       <div class="bubble me">Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</div>
       
        <div class="bubble you" style="margin-top:10%;">Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</div>
-      
-      
-      
-      
       
     </div>
     <div class="five wide column">
@@ -121,12 +118,12 @@
 
   
   
-    <div class="ui tall stacked segment " style="width:96%; margin:0 auto; margin-top:14px; margin-bottom:20px; background-color:rgb(230,230,230)">
-      <div class="ui grid">
+    <div class="ui tall stacked segment " style="width:96%; margin:0 auto; margin-top:14px; margin-bottom:20px; background-color:rgb(230,230,230);  ">
+      <div class="ui grid" style="background-color:rgb(70,70,70)">
         <div class="six wide column">
           <div class="ui active red large progress" id="redbar" data-percent="74" style="margin-bottom:10px;">
             <div class="bar">
-              <div class="progress"></div>
+              <div class="inverted progress"></div>
             </div>
           </div>
         </div>
@@ -135,9 +132,9 @@
         <div class="four wide column">
           <div style="text-align: center; ">
            <div class="ui large buttons">
-              <button class="ui red button">Support</button>
+                <button class="ui red button" >Student</button>
               <div class="or"></div>
-              <button class="ui blue button">Oppose</button>
+              <button class="ui blue button">&nbsp;&nbsp;School&nbsp;</button>
             </div>
           </div>
         </div>
@@ -159,75 +156,58 @@
        <div class="six wide column">
          <div class="ui stacked segment" >
             <a class="ui red ribbon label">Comment</a>
-          <div class="ui comments">
-              <div class="comment">
+          <div class="ui comments" >
+             
+              
+              
+              <div class="comment" ng-repeat="c in comments">
                 <a class="avatar">
-                  <img src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcTy9gsPmNSg7MdCHvmdzn7DHOwSKcPko4q0wdiCuhgiUUWCGZ4rJA">
+                  <img src="{{c.photo}}">
                 </a>
                 <div class="content">
-                  <a class="author">Elliot Fu</a>
+                  <a class="author">{{c.author}}</a>
                   <div class="metadata">
-                    <span class="date">Yesterday at 12:30AM</span>
+                    <span class="date">{{c.date | date:"medium"}}</span>
                   </div>
                   <div class="text">
-                    <p>This has been very useful for my research. Thanks as well!</p>
+                    {{c.textarea}}
                   </div>
-                  <div class="actions">
+           <!--   <div class="actions">
                     <a class="reply">Reply</a>
-                  </div>
-                </div>
-                <div class="comments">
-                  <div class="comment">
-                    <a class="avatar">
-                      <img src="http://zblogged.com/wp-content/uploads/2015/11/17.jpg">
-                    </a>
-                    <div class="content">
-                      <a class="author">Jenny Hess</a>
-                      <div class="metadata">
-                        <span class="date">Just now</span>
-                      </div>
-                      <div class="text">
-                        Elliot you are always so right :)
-                      </div>
-                      <div class="actions">
-                        <a class="reply">Reply</a>
-                      </div>
-                    </div>
-                  </div>
+                  </div> -->
                 </div>
               </div>
-              <div class="comment">
-                <a class="avatar">
-                  <img src="http://www.polyvore.com/cgi/img-thing?.out=jpg&size=l&tid=85251333">
-                </a>
-                <div class="content">
-                  <a class="author">Joe Henderson</a>
-                  <div class="metadata">
-                    <span class="date">5 days ago</span>
-                  </div>
-                  <div class="text">
-                    Dude, this is awesome. Thanks so much
-                  </div>
-                  <div class="actions">
-                    <a class="reply">Reply</a>
-                  </div>
-                </div>
-              </div>
-              <form class="ui reply form">
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              <form class="ui reply form" >
                 <div class="ui action input">
-                    <input type="text" placeholder="Your name" ng-model="comment.author">
-                    <button class="ui red right labeled icon button">
+                    <input type="text" placeholder="Your name" ng-model="comment1.author">
+                    <button class="ui red right labeled icon button" id="photo-b">
                       <i class="upload icon"></i>
                       Photo
                     </button>
                 </div>
                 <div class="field" style="margin-top:3px">
-                  <textarea ng-model="textarea"></textarea>
+                  <textarea ng-model="comment1.textarea"></textarea>
                 </div>
-                <div class="ui red labeled submit icon button">
+                <div class="ui red labeled submit icon button" ng-click="post()">
                   <i class="icon edit"></i> Add Reply
                 </div>
               </form>
+              
             </div>
          </div>
        </div>
@@ -240,7 +220,7 @@
         </div>
       
         <div class="six wide column">
-          <div class="ui stacked segment" id="commentBoard" ng-controller="commentBoardCtrl"">
+          <div class="ui stacked segment" id="commentBoard">
            <a class="ui blue right ribbon label">Comment</a>
            <div class="ui comments">
               <div class="comment">
@@ -348,14 +328,19 @@
                   <i class="icon edit"></i> Add Reply
                 </div>
               </form>
+              
+              
             </div>
           </div>
        </div>
     </div>     
-       
+  </div>
 
-   
-   
+     <div class="centered" style="text-align:center;color:white;">
+        <p>Kura Peng 2016</p>
+        <br/>
+      </div>
+
    
    
    
@@ -381,6 +366,42 @@
       </div>
   </sidebar>
      
+
+    <div class="ui modal">
+      <i class="close icon"></i>
+      <div class="header">
+        Profile Picture
+      </div>
+      <div class="image content">
+        <div class="ui medium image">
+          <img src="{{comment1.photo || anonymous}}"  style="height:300px;width:300px;">
+        </div>
+        <div class="description">
+          <div class="ui header">Upload an image or use our anonymous picture</div>
+          <div class="ui fluid input">
+             <input type="url" placeholder="Cope your img address" ng-model="comment1.photo" style="width:300px"></input>
+          </div>
+        </div>
+      </div>
+      <div class="actions">
+        <div class="ui black deny button">
+          Nope
+        </div>
+        <div class="ui positive right labeled icon button">
+          Yes, I like this picture
+          <i class="checkmark icon"></i>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+
   <script type="text/javascript" src="js/script.js"></script>  
   <script src="https://cdn.firebase.com/js/client/2.2.1/firebase.js"></script>
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
