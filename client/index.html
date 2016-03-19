@@ -6,7 +6,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.11.8/semantic.min.css"/>
     <script src="js/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/1.11.8/semantic.min.js"></script>
-
+    
+    <link href='https://fonts.googleapis.com/css?family=Raleway:200' rel='stylesheet' type='text/css'>
      <!-- <script src="/socket.io/socket.io.js"></script> -->
     <link rel="stylesheet" href="css/main.css" type="text/css" />
     <script>
@@ -17,6 +18,9 @@
     </script>
 </head>
 <body ng-controller="commentBoardCtrl">
+  
+  
+  
 <!--
    <div class="header-arg">
         <div class="header-content">
@@ -49,10 +53,6 @@
 
 
 
-
-
-
-
     
     <button class="huge ui circular pink icon button pull-down">
       <i class="sidebar icon" id="sign" style="font-size:30px;"></i>
@@ -60,7 +60,10 @@
   
   
 
-  <div class="ui grid" style="margin-top:-14px;margin-right:0px;" id="debate">
+  <div class="ui grid" style="margin-right:0px;" id="debate">
+   <div style="height:18px;width:100%;"></div>
+   
+   <h1 style="color:white;text-align:center;font-size:50px;margin-buttom:-20px;margin-bottom: 0px;font-family: 'Raleway', sans-serif; text-shadow: 1px 1px 20px white;">Should we have block schedule in our school?</h1>
    
    <div class="sixteen wide column" style="3%;"></div>
     <div class="five wide column">
@@ -70,13 +73,15 @@
               <img src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTxtYb1Qyy33d6taxj6sBckA8AQuik-zgEyrHQbn2fKWYyYa66Y">
             </div>
             <div class="content">
-              <a class="header">Chess Club</a>
+              <a class="header">Pro Block Schedule</a>
               
               <div class="description">
-                student side
+                <li>The 4x4 schedule presents a more manageable schedule</li>
+                <li>They find it harder to make up absences.</li>
               </div>
             </div>
             <div class="extra content">
+        
               <a>
                 <i class="user icon"></i>
                 {{lsupporters}} Supporters
@@ -84,23 +89,25 @@
             </div>
       </div>
     </div>
-    <div class="six wide column" style="font-size:15px;">
-      <div class="bubble me">Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</div>
+    <div class="six wide column" style="font-size:30px;">
+      <div class="bubble me">We should have Block schedule!!</div>
       
-       <div class="bubble you" style="margin-top:10%;">Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</div>
+       <div class="bubble you" style="margin-top:10%;font-size:50px;"><strong>No</strong>  block schedule!</div>
       
     </div>
     <div class="five wide column">
         <div class="blue ui card" id="blueside">
           <div class="image">
               <a class="ui right blue corner label"><i class="star icon"></i></a>
-            <img src="http://topschoolsoftware.files.wordpress.com/2013/07/school-administration-software2.jpg">
+            <img src="http://www.crfc.org/sites/www.crfc.org/files/leafgallery/aP1260259.JPG">
           </div>
           <div class="content">
-            <a class="header">School</a>
+            <a class="header">Anti Block Schedule</a>
             
             <div class="description">
-              Kristy is an art director living in New York.
+               <li>More difficult to place transfer student.</li>
+               <li>Problematic scheduling of AP courses since AP exams</li>
+              are given in the Spring.
             </div>
           </div>
           <div class="extra content">
@@ -118,8 +125,8 @@
 
   
   
-    <div class="ui tall stacked segment " style="width:96%; margin:0 auto; margin-top:14px; margin-bottom:20px; background-color:rgb(230,230,230);  ">
-      <div class="ui grid" style="background-color:rgb(70,70,70)">
+    <div class="ui tall stacked segment "  style="width:96%; margin:0 auto; margin-top:14px; margin-bottom:20px; background-color:rgb(230,230,230);">
+      <div class="ui grid" style="background-color:rgb(70,70,70);">
         <div class="six wide column">
           <div class="ui active red large progress" id="redbar" data-percent="0" style="margin-bottom:10px;">
             <div class="bar">
@@ -127,6 +134,9 @@
             </div>
           </div>
         </div>
+        
+        
+        
         
         
         <div class="four wide column">
@@ -149,12 +159,28 @@
           </div>
         </div>
        </div>
+      
+      <div> 
+      <div class="ui divider" style="margin-top:0px;"></div>
+      
+      <div ng-controller="changeImgCtrl" class="ui medium images" style="margin-left:7%;">
+          <a href="" ng-click="toRight()" id="lefta"><img src="img/left.png" style="height:300px;width:100px;" id="leftb"/></a>
+          <img src="{{imgarr[0]}}" style="height:300px;width:300px;" id="pic1">
+          <img src="{{imgarr[1]}}" style="height:300px;width:300px;" id="pic2">
+          <img src="{{imgarr[2]}}" style="height:300px;width:300px;" id="pic3">
+          <a href="" ng-click="toLeft()" id="righta"><img src="img/right.png" style="height:300px;width:100px;" id="rightb"/></a>
+      </div>
+             
     </div>
          
+   
+    
              
-    <div class="ui grid">
+             
+             
+    <div class="ui grid"style="background-color:rgb(230,230,230);margin-top:1%;margin-right: 0px;margin-left: 0px;">
        <div class="six wide column">
-         <div class="ui stacked segment" >
+         <div class="ui stacked segment">
             <a class="ui red ribbon label">{{commentnum}}&nbsp;&nbsp;Comment</a>
           <div class="ui comments" >
              
@@ -177,16 +203,6 @@
                   </div> -->
                 </div>
               </div>
-              
-              
-              
-              
-              
-              
-              
-              
-              
-              
               
               
               
@@ -216,11 +232,12 @@
           <i class="university icon" ></i>
           <p style="text-align: center; margin-top:2%; font-size:50px;">
            A place where you define your own <strong>Justice</strong>
+           
          </p>
         </div>
       
         <div class="six wide column">
-          <div class="ui stacked segment" id="commentBoard">
+          <div class="ui stacked segment" id="commentBoard" >
            <a class="ui blue right ribbon label">{{commentnum2}}&nbsp;&nbsp;Comment</a>
            <div class="ui comments">
               
@@ -266,11 +283,7 @@
     </div>     
   </div>
 
-     <div class="centered" style="text-align:center;color:white;">
-        <p>Kura Peng 2016</p>
-        <br/>
-      </div>
-
+    
    
    
    
@@ -330,7 +343,10 @@
 
 
 
-
+ <div class="centered" style="text-align:center;color:white;">
+        <p>Kura Peng 2016</p>
+        <br/>
+  </div>
 
   <script type="text/javascript" src="js/script.js"></script>  
   <script src="https://cdn.firebase.com/js/client/2.2.1/firebase.js"></script>
@@ -338,5 +354,6 @@
   <script src="https://cdn.firebase.com/libs/angularfire/1.1.3/angularfire.min.js"></script>
   <script type="text/javascript" src="https://code.angularjs.org/1.5.0/angular-route.js"></script>
   <script type="text/javascript" src="js/comment.js"></script>  
+  <script type="text/javascript" src="js/bootsrap.min.js"></script>  
 </body>
 </html>

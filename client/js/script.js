@@ -8,6 +8,20 @@ $(document).ready(function(){
                      'transform' : 'rotate('+ degrees +'deg)'});
         return $(this);
     };
+    $('#lefta').mouseenter(function() {
+        $('#leftb').attr('src','img/left-a.png');
+    }).mouseleave(function() {
+         $('#leftb').attr('src','img/left.png');
+    });
+    
+       $('#righta').mouseenter(function() {
+        $('#rightb').attr('src','img/right-a.png');
+    }).mouseleave(function() {
+         $('#rightb').attr('src','img/right.png');
+    });
+    
+    
+    
     $('#redbar').progress();
     
     $('#bluebar').progress();
